@@ -19,6 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //GET /notes should return the notes.html file
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+});
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
 });

@@ -5,7 +5,7 @@ const db = require("./Develop/db/db.json");
 const uuid = require("./Assets/uuid");
 
 const app = express();
-const port = 3001;
+
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,12 +33,7 @@ app.get("/api/notes", (req, res) => {
   return res.json(db);
 });
 
-//POST /api/notes should receive a new note to save on
-//the request body, add it to the db.json
-//file, and then return the new note to the client.
-//You'll need to find a way to give each note a unique
-//id when it's saved (look into npm packages that could
-//do this for you).
+//POST /api/notes should receive a new note to save 
 app.post("/api/notes", (req, res) => {
   const { title, text } = req.body;
 
@@ -65,6 +60,6 @@ app.post("/api/notes", (req, res) => {
 //     }
 // }
 
-app.listen(port, () =>
+app.listen(PORT, () =>
   console.log(`The server is listening at http://localhost:${PORT}`)
 );
